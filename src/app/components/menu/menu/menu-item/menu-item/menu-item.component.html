@@ -1,0 +1,17 @@
+<ng-container 
+  *ngIf="href; then linkTemplate; else nonLinkTemplate"
+>
+</ng-container>
+<div class="sub-items-container">
+  <ng-content></ng-content>
+</div>
+
+<ng-template #linkTemplate>
+  <a [href]="href">
+    <h4>{{ title }}</h4>
+  </a>
+</ng-template>
+
+<ng-template #nonLinkTemplate>
+    <h4>{{ title }}</h4>
+</ng-template>
