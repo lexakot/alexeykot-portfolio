@@ -8,21 +8,27 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environments';
 
 import { AppComponent } from './app.component';
-import { COMPONENTS } from './components';
 import { ProjectsApiService } from './services/projects-api-service';
+import {AppRoutingModule} from "./app.routing";
+import {AuthPageModule} from "./pages/auth/auth-page.module";
+import {BioModule} from "./pages/bio/bio.module";
+import {ProjectsModule} from "./pages/projects/projects.module";
+import {MainModule} from "./pages/main/main.module";
+
 
 @NgModule({
   imports: [
     BrowserModule,
-    FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'my-app-name'),
     AngularFireDatabaseModule,
-    ReactiveFormsModule,
+    AppRoutingModule,
+    AuthPageModule,
+    BioModule,
+    ProjectsModule,
+    MainModule,
   ],
   declarations: [
     AppComponent,
-    
-    ...COMPONENTS,
   ],
   providers: [
     ProjectsApiService,

@@ -9,10 +9,11 @@ export interface Project {
 
 @Injectable()
 export class ProjectsApiService {
+  private
   constructor(private db: AngularFireDatabase) {
   }
-  public get() {
-    return this.db.list('projects').valueChanges();
+  public get(): Observable<Project[]> {
+    return this.db.list('projects').valueChanges() as Observable<Project[]>;
   }
   public set(project) {
     return this.db.list('projects').push(project);

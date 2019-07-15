@@ -1,0 +1,11 @@
+<app-menu>
+  <app-menu-item title="Bio">
+    <app-menu-item title="Expereince">
+      <app-menu-item
+              *ngFor="let project of person.projects"
+              [title]="project.name + ' - ' + project.year">
+
+      </app-menu-item>
+    </app-menu-item>
+  </app-menu-item>
+</app-menu>

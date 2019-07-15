@@ -26,23 +26,4 @@ export class AppComponent implements OnInit  {
   }
   public projects: Observable<Project[]> = this.projectsApiService.get();
   public form: FormGroup;
-  person = {
-    name: "Alexey",
-    surname: "Kot",
-    githubUrl: "Github",
-    otherInfo: "Other",
-    bio: "bio",
-    projects: [
-      {
-        name: "TestProject",
-        year: '2012',
-        href: 'Link1',
-      },
-      {
-        name: "TestProject2",
-        year: '2012',
-        href: 'Link2',
-      },
-    ]
-  }
 }

@@ -1,0 +1,23 @@
+<app-menu>
+
+  <app-menu-item>
+    <app-menu-item title="Projects">
+      <app-menu-item
+              *ngFor="let project of person.projects"
+              [title]="project.name"
+              [href]="project.href">
+      </app-menu-item>
+      <ul>
+        <li *ngFor="let project of projects | async">
+          <pre>{{ project.name }}</pre>
+          <pre>{{ project.year }}</pre>
+        </li>
+      </ul>
+      <form [formGroup]="form" (ngSubmit)="addProject()">
+        <input formControlName="year"  />
+        <input formControlName="name" />
+        <button>Add</button>
+      </form>
+    </app-menu-item>
+  </app-menu-item>
+</app-menu>
