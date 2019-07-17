@@ -6,6 +6,9 @@
             {{ project.name }} - {{ project.date | date: 'MMMM y'}}
           </mat-expansion-panel-header>
           <p>{{ project.description }}</p>
+          <mat-chip-list>
+              <mat-chip *ngFor="let tag of project.tags">{{ tag }}</mat-chip>
+            </mat-chip-list>
       </mat-expansion-panel>
     </app-menu-item>
   </app-menu-item>

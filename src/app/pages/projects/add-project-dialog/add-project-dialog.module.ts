@@ -9,6 +9,7 @@ import {
   MatInputModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  MatSelectModule,
 } from '@angular/material';
 
 import { AddProjectDialogComponent } from './add-project-dialog.component'
@@ -27,6 +28,7 @@ import { AddProjectDialogComponent } from './add-project-dialog.component'
     MatDatepickerModule,
     MatNativeDateModule,
     CommonModule,
+    MatSelectModule,
   ],
 })
 export class AddProjectDialogModule {}

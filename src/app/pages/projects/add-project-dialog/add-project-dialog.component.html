@@ -34,6 +34,12 @@
                   </ng-container>
                 </mat-error>
             </mat-form-field>
+            <mat-form-field>
+                <mat-label>Choose skills</mat-label>
+                <mat-select formControlName="tags" multiple>
+                  <mat-option *ngFor="let tag of tagList" [value]="tag">{{tag}}</mat-option>
+                </mat-select>
+              </mat-form-field>
         <div mat-dialog-actions>
           <button class="add-project-btn" [disabled]="form.invalid" mat-raised-button color="primary">Add</button>
         </div>
