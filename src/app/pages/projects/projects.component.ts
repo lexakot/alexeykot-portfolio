@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {Project, ProjectsApiService} from "../../services/projects-api-service";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import { MatDialog } from '@angular/material';
+import { AddProjectDialogComponent } from './add-project-dialog/add-project-dialog.component';
 import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
   person = {
@@ -18,30 +19,27 @@ export class ProjectsComponent implements OnInit {
     projects: [
       {
         name: "TestProject",
-        year: '2012',
+        date: '2012',
         href: 'Link1',
       },
       {
         name: "TestProject2",
-        year: '2012',
+        date: '2012',
         href: 'Link2',
       },
     ]
   }
 
-  constructor(private projectsApiService: ProjectsApiService, private fb: FormBuilder) {
-    this.projects.subscribe(console.log)
-  }
-  addProject() {
-    this.projectsApiService.set(this.form.value)
-    this.form.reset();
+  constructor(private projectsApiService: ProjectsApiService, public dialog: MatDialog) {
+    this.projects.subscribe(console.log)  }
+
+
+  openDialog(): void {
+    this.dialog.open(AddProjectDialogComponent, {
+      width: '500px',
+    });
   }
   public ngOnInit() {
-    this.form = this.fb.group({
-      name: '',
-      year: '',
-    })
   }
   public projects: Observable<Project[]> = this.projectsApiService.get();
-  public form: FormGroup;
 }
