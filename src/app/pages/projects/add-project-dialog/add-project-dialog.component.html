@@ -12,17 +12,31 @@
             </mat-error>
         </mat-form-field>
         <br />
-        <mat-form-field>
-            <input readonly matInput [matDatepicker]="dp" placeholder="Project date" formControlName="date">
-            <mat-error>
-                <ng-container *ngIf="form.get('date').errors as errors">
-                  <ng-container *ngIf="errors.required">Required</ng-container>
-                </ng-container>
-              </mat-error>
-            <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-            <mat-datepicker #dp>
-            </mat-datepicker>
-          </mat-form-field>
+        <div class="date-container">
+            <mat-form-field>
+                <input readonly matInput [matDatepicker]="dp" placeholder="Start date" formControlName="startDate">
+                <mat-error>
+                    <ng-container *ngIf="form.get('startDate').errors as errors">
+                      <ng-container *ngIf="errors.required">Required</ng-container>
+                    </ng-container>
+                  </mat-error>
+                <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+                <mat-datepicker #dp>
+                </mat-datepicker>
+            </mat-form-field>
+            <div class="separator"></div>
+            <mat-form-field>
+                <input readonly matInput [matDatepicker]="dp1" placeholder="End date" formControlName="endDate">
+                <mat-error>
+                    <ng-container *ngIf="form.get('endDate').errors as errors">
+                      <ng-container *ngIf="errors.required">Required</ng-container>
+                    </ng-container>
+                  </mat-error>
+                <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+                <mat-datepicker #dp1>
+                </mat-datepicker>
+            </mat-form-field>
+        </div>
           <br />
           <mat-form-field>
               <mat-label>Description</mat-label>

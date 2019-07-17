@@ -31,7 +31,8 @@ export class AddProjectDialogComponent {
   addProject() {
     let obj = {
       name: this.form.value.name,
-      date: +this.form.value.date,
+      startDate: +this.form.value.startDate,
+      endDate: +this.form.value.endDate,
       description: this.form.value.description,
       tags: this.form.value.tags,
     }
@@ -42,7 +43,8 @@ export class AddProjectDialogComponent {
   public ngOnInit() {
     this.form = this.fb.group({
       name: ['', [Validators.minLength(2), Validators.required]],
-      date: ['', [Validators.required]],
+      startDate: ['', [Validators.required]],
+      endDate: ['', [Validators.required]],
       description: ['', [Validators.minLength(5), Validators.required]],
       tags: [],
     })

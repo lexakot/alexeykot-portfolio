@@ -3,8 +3,9 @@
     <app-menu-item title="Expereince">
       <mat-expansion-panel *ngFor="let project of projects | async">
           <mat-expansion-panel-header>
-            {{ project.name }} - {{ project.date | date: 'MMMM y'}}
+            {{ project.name }}
           </mat-expansion-panel-header>
+          <p>{{ project.startDate | date: 'MMMM y'}} - {{ project.endDate | date: 'MMMM y'}}</p>
           <p>{{ project.description }}</p>
           <mat-chip-list>
               <mat-chip *ngFor="let tag of project.tags">{{ tag }}</mat-chip>

@@ -10,25 +10,6 @@ import {Observable} from "rxjs";
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
-  person = {
-    name: "Alexey",
-    surname: "Kot",
-    githubUrl: "Github",
-    otherInfo: "Other",
-    bio: "bio",
-    projects: [
-      {
-        name: "TestProject",
-        date: '2012',
-        href: 'Link1',
-      },
-      {
-        name: "TestProject2",
-        date: '2012',
-        href: 'Link2',
-      },
-    ]
-  }
 
   constructor(private projectsApiService: ProjectsApiService, public dialog: MatDialog) {
     this.projects.subscribe(console.log)  }
