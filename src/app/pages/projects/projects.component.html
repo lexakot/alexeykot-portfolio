@@ -7,12 +7,12 @@
               [title]="project.name"
               [href]="project.href">
       </app-menu-item>
-      <ul>
-        <li *ngFor="let project of projects | async">
-          <pre>{{ project.name }}</pre>
-          <pre>{{ project.year }}</pre>
-        </li>
-      </ul>
+      <mat-list>
+        <mat-list-item *ngFor="let project of projects | async">
+            {{ project.name }} - {{ project.year }}
+            <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
       <form [formGroup]="form" (ngSubmit)="addProject()">
         <input formControlName="year"  />
         <input formControlName="name" />

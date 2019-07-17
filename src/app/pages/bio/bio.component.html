@@ -1,11 +1,12 @@
 <app-menu>
   <app-menu-item title="Bio">
     <app-menu-item title="Expereince">
-      <app-menu-item
-              *ngFor="let project of person.projects"
-              [title]="project.name + ' - ' + project.year">
-
-      </app-menu-item>
+      <mat-expansion-panel *ngFor="let project of person.projects">
+          <mat-expansion-panel-header>
+            {{ project.name }} - {{ project.year }}
+          </mat-expansion-panel-header>
+          <p>{{ project.description }}</p>
+      </mat-expansion-panel>
     </app-menu-item>
   </app-menu-item>
 </app-menu>

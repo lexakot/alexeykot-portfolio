@@ -1,5 +1,36 @@
-<form [formGroup]="form" (ngSubmit)="signIn()">
-  <input formControlName="username"  />
-  <input formControlName="password" />
-  <button>Sign in</button>
+<mat-card class="container">
+<form class="form-container" #form1="ngForm" [formGroup]="form" (ngSubmit)="signIn()">
+    <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input
+          matTooltipClass="tooltip"
+          matTooltipPosition="left"
+          matTooltip="alexeykot@mail.com - 'user' role admin@admin.com - 'admin' role"
+          matInput
+          formControlName="username"
+        />
+        <mat-error>
+          <ng-container *ngIf="form.get('username').errors as errors">
+            <ng-container *ngIf="errors.required">Required</ng-container>
+          </ng-container>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          matTooltipClass="tooltip-password"
+          matTooltipPosition="left"
+          matTooltip="alexeykot@mail.com - 123qwe123 admin@admin.com - admin123"
+          type="password"
+          matInput
+          formControlName="password"
+        />  
+        <mat-error>
+            <ng-container *ngIf="form.get('password').errors as errors">
+              <ng-container *ngIf="errors.required">Required</ng-container>
+            </ng-container>
+          </mat-error>
+    </mat-form-field>
+  <button class="form-button" mat-raised-button [color]="form.valid || !form1.submitted ? 'primary' : 'warn'">Sign in</button>
 </form>
+</mat-card>

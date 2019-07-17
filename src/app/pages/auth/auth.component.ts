@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Observable} from "rxjs";
 import {Project} from "../../services/projects-api-service";
 import {Router} from "@angular/router";
@@ -8,7 +8,7 @@ import {AuthService} from "../../auth/auth-service";
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+  styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
 
@@ -24,8 +24,8 @@ export class AuthComponent implements OnInit {
   }
   public ngOnInit() {
     this.form = this.fb.group({
-      username: '',
-      password: '',
+      username: ['', [Validators.minLength(2), Validators.required]],
+      password: ['', [Validators.required]]
     })
   }
   public form: FormGroup;

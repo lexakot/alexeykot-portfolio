@@ -1,0 +1,15 @@
+.nav-container {
+  display: flex;;
+  justify-content: flex-end;
+  align-items: center
+}
+
+.actions-container {
+  width: 20%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.active-link {
+  border-bottom: 3px solid white;
+}

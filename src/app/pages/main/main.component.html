@@ -1,6 +1,12 @@
+<mat-toolbar color="primary">
+        <mat-toolbar-row class="nav-container">
+                <mat-nav-list class="actions-container">
+                        <a routerLinkActive="active-link" [routerLink]="['/bio']">Bio</a>
+                        <a routerLinkActive="active-link" (click)="open()" [routerLink]="['/projects']">Projects</a>
+                </mat-nav-list>
+                <button (click)="authService.SignOut()" mat-raised-button color="secondary">Log out</button>
+        </mat-toolbar-row>
+      </mat-toolbar>
 <profile-component [person]="person"></profile-component>
-<nav>
-    <a [routerLink]="['/bio']">Bio</a>
-    <a [routerLink]="['/projects']">Projects</a>
-</nav>
+
 <router-outlet></router-outlet>

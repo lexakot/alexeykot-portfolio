@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from "../../auth/auth-service";
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
   person = {
@@ -25,8 +27,20 @@ export class MainComponent implements OnInit {
       },
     ]
   }
-  constructor() { }
+  constructor(public authService: AuthService, public snackBar: MatSnackBar) { }
 
+  message: string = 'You have no permissions';
+  actionButtonLabel: string = 'Close';
+  autoHide: number = 2000;
+
+  open() {
+    let user = this.authService.GetUser()
+    let config = new MatSnackBarConfig();
+    config.duration = this.autoHide;
+    if (user.role !== 'admin') {
+      this.snackBar.open(this.message, this.actionButtonLabel, config);
+    }
+  }
   ngOnInit() {
   }
 

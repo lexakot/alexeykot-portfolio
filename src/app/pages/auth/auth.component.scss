@@ -1,0 +1,28 @@
+.form-container {
+  display: grid;
+  row-gap: 20px;
+}
+
+.container {
+  width: 50%;
+}
+
+:host {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-button {
+  width: 30%;
+  margin: auto;
+}
+
+::ng-deep .tooltip {
+  width: 150px;
+}
+
+::ng-deep .tooltip-password {
+  width: 170px;
+}
