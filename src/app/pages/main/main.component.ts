@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../auth/auth-service";
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -44,4 +45,5 @@ export class MainComponent implements OnInit {
   ngOnInit() {
   }
 
+  public user = this.authService.GetUser();
 }

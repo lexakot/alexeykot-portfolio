@@ -12,6 +12,7 @@
         <mat-error>
           <ng-container *ngIf="form.get('username').errors as errors">
             <ng-container *ngIf="errors.required">Required</ng-container>
+            <ng-container *ngIf="errors.minlength">Should contain minimum 2 symbols</ng-container>
           </ng-container>
         </mat-error>
     </mat-form-field>

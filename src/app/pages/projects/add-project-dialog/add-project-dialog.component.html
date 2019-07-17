@@ -7,9 +7,11 @@
           <mat-error>
               <ng-container *ngIf="form.get('name').errors as errors">
                 <ng-container *ngIf="errors.required">Required</ng-container>
+                <ng-container *ngIf="errors.minlength">Should contain minimum 2 symbols</ng-container>
               </ng-container>
             </mat-error>
         </mat-form-field>
+        <br />
         <mat-form-field>
             <input readonly matInput [matDatepicker]="dp" placeholder="Project date" formControlName="date">
             <mat-error>
@@ -21,8 +23,19 @@
             <mat-datepicker #dp>
             </mat-datepicker>
           </mat-form-field>
+          <br />
+          <mat-form-field>
+              <mat-label>Description</mat-label>
+              <textarea matInput formControlName="description" ></textarea>
+              <mat-error>
+                  <ng-container *ngIf="form.get('description').errors as errors">
+                    <ng-container *ngIf="errors.required">Required</ng-container>
+                    <ng-container *ngIf="errors.minlength">Should contain minimum 5 symbols</ng-container>
+                  </ng-container>
+                </mat-error>
+            </mat-form-field>
         <div mat-dialog-actions>
-          <button [disabled]="form.invalid" mat-raised-button color="primary">Add</button>
+          <button class="add-project-btn" [disabled]="form.invalid" mat-raised-button color="primary">Add</button>
         </div>
     </form>
 </div>

@@ -25,6 +25,7 @@ export class AddProjectDialogComponent {
     let obj = {
       name: this.form.value.name,
       date: +this.form.value.date,
+      description: this.form.value.description,
     }
     this.projectsApiService.set(obj)
     this.dialogRef.close();
@@ -33,7 +34,8 @@ export class AddProjectDialogComponent {
   public ngOnInit() {
     this.form = this.fb.group({
       name: ['', [Validators.minLength(2), Validators.required]],
-      date: ['', [Validators.required]]
+      date: ['', [Validators.required]],
+      description: ['', [Validators.minLength(5), Validators.required]],
     })
   }
   public projects: Observable<Project[]> = this.projectsApiService.get();

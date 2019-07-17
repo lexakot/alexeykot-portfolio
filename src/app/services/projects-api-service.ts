@@ -5,7 +5,8 @@ import { map } from "rxjs/operators";
 
 export interface Project {
   name: string;
-  year: number;
+  date: number;
+  description: string;
 }
 
 @Injectable()
